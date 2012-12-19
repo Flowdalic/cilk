@@ -16,7 +16,7 @@ cilkclocal_CPPFLAGS=\
 
 cilkc_SOURCES = cilkc.c make-temp-file.c make-temp-file.h
 cilkc_CPPFLAGS=-DCILKHEADER_DIR="\"$(prefix)/include/cilk\""	\
--DCILK2C_DIR="\"$(pkglibdir)\"" -DLIBS_DIR="\"$(libdir)\""	\
+-DCILK2C_DIR="\"$(bindir)\"" -DLIBS_DIR="\"$(libdir)\""	\
 -DLIBS2_DIR="\"$(libdir)/cilk\""
 
 EXTRA_DIST = cilk.m4 automake-cilk dotemacs.el

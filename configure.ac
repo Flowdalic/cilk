@@ -1,5 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_INIT
+AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([config.h.in])
 AM_CONFIG_HEADER([config.h runtime/cilk-sysdep.h])
 AC_PREREQ(2.53)

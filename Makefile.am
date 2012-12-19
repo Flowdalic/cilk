@@ -1,5 +1,6 @@
 SUBDIRS = cilk2c runtime support examples doc FAQ
 EXTRA_DIST = THANKS bootstrap.sh
+ACLOCAL_AMFLAGS = -I m4
 
 all-check:
 	$(MAKE) clean

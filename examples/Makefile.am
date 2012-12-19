@@ -8,7 +8,7 @@ PROGFLAGS = --nproc $(NPROC) --yield
 CILKFLAGS=@CFLAGS@
 CILKCOMPILE = $(CILK) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CILKFLAGS) $(CILKFLAGS)
 CILKLD = $(CILK)
-CILKLINK = $(CILKLD) $(AM_CILKFLAGS) $(CILKFLAGS) $(PERFCTR_LIBS) $(LDFLAGS) -o $@
+CILKLINK = $(CILKLD) $(AM_CILKFLAGS) $(CILKFLAGS) $(PERFCTR_LIBS) $(LDFLAGS) -o $@.exe
 LINK=$(CILKLINK)
 
 noinst_PROGRAMS=hello fib fib-serial testall ck magic knapsack queens	\
@@ -60,19 +60,19 @@ knapsack-example3.input
 
 check:  hello testall fft fib lu matmul cilksort heat test-locks test-errno
 	@echo "Runnig Cilk tests.  This will take a while."
-	./hello $(PROGFLAGS)
-	./test-void-func $(PROGFLAGS)
-	./test-locks $(PROGFLAGS)
-	./test-errno $(PROGFLAGS)
-	./testall $(PROGFLAGS)
-	./fft $(PROGFLAGS) -c
-	./fib $(PROGFLAGS) 35
-	./lu $(PROGFLAGS) -n 1024
-	./matmul $(PROGFLAGS) 1066
-	./cilksort $(PROGFLAGS) -n 3000000
-	./heat $(PROGFLAGS)
-	./strassen $(PROGFLAGS)
-	./velin $(PROGFLAGS)
+	./hello.exe $(PROGFLAGS)
+	./test-void-func.exe $(PROGFLAGS)
+	./test-locks.exe $(PROGFLAGS)
+	./test-errno.exe $(PROGFLAGS)
+	./testall.exe $(PROGFLAGS)
+	./fft.exe $(PROGFLAGS) -c
+	./fib.exe $(PROGFLAGS) 35
+	./lu.exe $(PROGFLAGS) -n 1024
+	./matmul.exe $(PROGFLAGS) 1066
+	./cilksort.exe $(PROGFLAGS) -n 3000000
+	./heat.exe $(PROGFLAGS)
+	./strassen.exe $(PROGFLAGS)
+	./velin.exe $(PROGFLAGS)
 
 .cilk.o:
 	$(CILKCOMPILE) -c -o $@ $<

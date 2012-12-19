@@ -78,9 +78,13 @@ and autoconf-2.57-2 (both from rawhide.)
 
 You do this:
 
+ libtoolize
  aclocal
- automake
  autoconf
+ autoheader
+ automake --add-missing
+
+ or just ./bootstrap.sh
  ./configure
  make
 
