@@ -198,7 +198,7 @@ int moo(const int identifier1 (T identifier2 (int identifier3)));
   /* tq: type qualifiers */
     struct {
         TypeQual   tq;
-	Coord      coord;   /* coordinates where type quals began */ 
+		Coord      coord;   /* coordinates where type quals began */ 
     } tq;
 
   /* tok: token coordinates */
@@ -822,7 +822,7 @@ declaring.list: /*P*/
 	    }
         | declaring.list ',' declarator
             { 
-	      $$ = AppendDecl($1, $3, Redecl);
+	      $<L>$ = AppendDecl($1, $3, Redecl);
 	    }
           asm.opt { SetDeclAsm($3, $5); }
           attributes.opt { SetDeclAttribs($3, $7.tq); }
@@ -888,7 +888,7 @@ default.declaring.list:  /*P*/ /* Can't  redeclare typedef names */
               $$ = MakeNewList(SetDeclInit($2, $6)); 
 	    }
         | default.declaring.list ',' identifier.declarator
-            { $$ = AppendDecl($1, $3, NoRedecl); }
+            { $<L>$ = AppendDecl($1, $3, NoRedecl); }
           attributes.opt { SetDeclAttribs($3, $5.tq); }
 	  initializer.opt
             { SetDeclInit($3, $7); }
